@@ -153,13 +153,18 @@ Content-Type: multipart/form-data
 
 #### 1. Get All Cards (Public)
 - **URL:** `GET /card/get-all-cards`
-- **Description:** Get all published cards with pagination
+- **Description:** Get all published cards with pagination and optional filtering
 - **Authentication:** Not required
 - **Query Parameters:**
   - `page` (optional): Page number (default: 1)
   - `limit` (optional): Items per page (default: 10)
-  - `artistId` (optional): Filter by artist ID
-  - `category` (optional): Filter by category ID
+  - `artistId` (optional): Filter cards by specific artist ID - returns all cards created by that artist
+  - `category` (optional): Filter cards by specific category ID - returns all cards belonging to that category
+- **Filtering Examples:**
+  - `GET /card/get-all-cards` - Returns all cards
+  - `GET /card/get-all-cards?artistId=artist123` - Returns all cards by artist with ID "artist123"
+  - `GET /card/get-all-cards?category=category456` - Returns all cards in category with ID "category456"
+  - `GET /card/get-all-cards?artistId=artist123&category=category456` - Returns cards by specific artist in specific category
 - **Response:**
 ```json
 {
